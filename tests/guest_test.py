@@ -11,6 +11,7 @@ class TestGuest(unittest.TestCase):
         self.guest = Guest("Ethan", 40, "Famous Last Words")
         self.room = Room(23, 15)
         self.song = Song("Famous Last Words", "My Chemical Romance")
+        self.drink = Drink("Beer", 5)
 
 
     def test_guest_has_name(self):

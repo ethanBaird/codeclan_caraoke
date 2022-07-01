@@ -3,6 +3,7 @@ import unittest
 from classes.room import Room
 from classes.guest import Guest
 from classes.song import Song
+from classes.drink import Drink
 
 
 
@@ -12,6 +13,7 @@ class TestRoom(unittest.TestCase):
         self.room = Room(1, 5)
         self.guest = Guest("Ethan", 40, "Famous Last Words")
         self.song = Song("Famous Last Words", "My Chemical Romance")
+        self.drink = Drink("Beer", 5)
 
     def test_room_has_number(self):
         self.assertEqual(1, self.room.room_number)
@@ -60,3 +62,8 @@ class TestRoom(unittest.TestCase):
         self.not_fave_song = Song("One More Time", "Britney Spears")
         self.assertEqual("Can somebody queue Famous Last Words!", self.room.add_song(self.not_fave_song, self.guest))
 
+    def test_room_can_sell_drink(self):
+        self.room.sell_drink(self.guest, self.drink)
+
+        self.assertEqual(5, self.room.till)
+        self.assertEqual(35, self.guest.wallet)

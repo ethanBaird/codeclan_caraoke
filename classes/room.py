@@ -28,4 +28,9 @@ class Room:
         self.songs.append(song)
         return guest.check_song(song)
 
+    def sell_drink(self, guest, drink):
+        guest.buy_drink(drink)
+        self.till += drink.price
+
+
 
