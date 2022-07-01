@@ -9,7 +9,7 @@ from classes.song import Song
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        self.room = Room(1, 15)
+        self.room = Room(1, 5)
         self.guest = Guest("Ethan")
         self.song = Song("Famous Last Words", "My Chemical Romance")
 
@@ -18,7 +18,7 @@ class TestRoom(unittest.TestCase):
 
     # @unittest.skip("skip for now")
     def test_room_has_capacity(self):
-        self.assertEqual(15, self.room.capacity)
+        self.assertEqual(5, self.room.capacity)
 
     def test_room_starts_empty(self):
         self.assertEqual(0, self.room.get_guests())
@@ -36,3 +36,13 @@ class TestRoom(unittest.TestCase):
     def test_room_can_add_song(self):
         self.room.add_song(self.song)
         self.assertEqual(1, self.room.get_songs())
+
+    def test_room_can_not_exceed_capacity(self):
+        self.room.check_in(self.guest)
+        self.room.check_in(self.guest)
+        self.room.check_in(self.guest)
+        self.room.check_in(self.guest)
+        self.room.check_in(self.guest)
+        
+        self.assertEqual("Room Full", self.room.check_in(self.guest))
+        self.assertEqual(5, self.room.get_guests())
