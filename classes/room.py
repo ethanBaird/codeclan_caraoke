@@ -4,7 +4,7 @@ class Room:
         self.room_number = _room_number
         self.capacity = _capacity
         self.guests = []
-        self.songs = {}
+        self.songs = []
 
     def get_guests(self):
         return len(self.guests)
@@ -14,5 +14,11 @@ class Room:
 
     def check_out(self, guest):
         self.guests.remove(guest)
+
+    def get_songs(self):
+        return len(self.songs)
+
+    def add_song(self, song):
+        self.songs.append(song)
 
 
