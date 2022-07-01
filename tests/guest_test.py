@@ -32,6 +32,21 @@ class TestGuest(unittest.TestCase):
 
         self.assertEqual(35, self.guest.wallet)
 
+    def test_guest_has_sufficient_funds(self):
+        self.assertEqual(True, self.guest.sufficient_funds(self.drink))
+
+    def test_guest_has_insufficient_funds(self):
+        self.expensive_drink = Drink("Champagne", 50)
+        self.assertEqual(False, self.guest.sufficient_funds(self.expensive_drink))
+
+    def test_guest_can_buy_drink_with_sufficient_funds(self):
+        self.guest.buy_drink(self.drink)
+        self.assertEqual(35, self.guest.wallet)
+
+    def test_guest_cant_buy_drink_with_insufficient_funds(self):
+        self.expensive_drink = Drink("Champagne", 50)
+        self.assertEqual(40, self.guest.wallet)
+
     
 
     
