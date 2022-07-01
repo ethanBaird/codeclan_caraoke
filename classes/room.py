@@ -24,9 +24,16 @@ class Room:
     def get_songs(self):
         return len(self.songs)
 
-    def add_song(self, song, guest):
-        self.songs.append(song)
-        return guest.check_song(song)
+    def add_song(self, new_song, guest):
+        repeat = False
+        for song in self.songs:
+            if song.title == new_song.title:
+                repeat = True
+        if repeat == False:
+            self.songs.append(new_song)
+            return guest.check_song(new_song)
+        if repeat == True:
+            pass
 
     def sell_drink(self, guest, drink):
         guest.buy_drink(drink)

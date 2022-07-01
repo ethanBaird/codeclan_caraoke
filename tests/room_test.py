@@ -67,3 +67,9 @@ class TestRoom(unittest.TestCase):
 
         self.assertEqual(5, self.room.till)
         self.assertEqual(35, self.guest.wallet)
+
+    def test_room_does_not_repeat_songs(self):
+        self.room.add_song(self.song, self.guest)
+        self.room.add_song(self.song, self.guest)
+
+        self.assertEqual(1, self.room.get_songs())
