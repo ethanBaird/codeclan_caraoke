@@ -34,7 +34,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(0, self.room.get_guests())
 
     def test_room_can_add_song(self):
-        self.room.add_song(self.song)
+        self.room.add_song(self.song, self.guest)
         self.assertEqual(1, self.room.get_songs())
 
     def test_room_can_not_exceed_capacity(self):
@@ -52,4 +52,11 @@ class TestRoom(unittest.TestCase):
 
         self.assertEqual(10, self.room.till)
         self.assertEqual(30, self.guest.wallet)
+
+    def test_guest_cheers_for_fave_song_when_added(self):
+        self.assertEqual("YALDI", self.room.add_song(self.song, self.guest))
+
+    def test_guest_asks_for_fave_song_if_not_fave_added(self):
+        self.not_fave_song = Song("One More Time", "Britney Spears")
+        self.assertEqual("Can somebody queue Famous Last Words!", self.room.add_song(self.not_fave_song, self.guest))
 

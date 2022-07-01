@@ -5,4 +5,12 @@ class Guest:
         self.wallet = _wallet
         self.fave_song = _fave_song
 
+    def check_song(self, song):
+        if self.fave_song == song.title:
+            return "YALDI"
+        else:
+            return f"Can somebody queue {self.fave_song}!"
+
+
+
     

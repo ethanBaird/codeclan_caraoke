@@ -24,7 +24,8 @@ class Room:
     def get_songs(self):
         return len(self.songs)
 
-    def add_song(self, song):
+    def add_song(self, song, guest):
         self.songs.append(song)
+        return guest.check_song(song)
 
 
