@@ -10,7 +10,7 @@ class TestRoom(unittest.TestCase):
 
     def setUp(self):
         self.room = Room(1, 5)
-        self.guest = Guest("Ethan", 40)
+        self.guest = Guest("Ethan", 40, "Famous Last Words")
         self.song = Song("Famous Last Words", "My Chemical Romance")
 
     def test_room_has_number(self):
@@ -52,4 +52,4 @@ class TestRoom(unittest.TestCase):
 
         self.assertEqual(10, self.room.till)
         self.assertEqual(30, self.guest.wallet)
-        
+

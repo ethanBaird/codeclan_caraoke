@@ -5,13 +5,16 @@ from classes.guest import Guest
 class TestGuest(unittest.TestCase):
 
     def setUp(self):
-        self.guest = Guest("Ethan", 40)
+        self.guest = Guest("Ethan", 40, "Famous Last Words")
 
     def test_guest_has_name(self):
         self.assertEqual("Ethan", self.guest.name)
 
     def test_guest_has_wallet(self):
         self.assertEqual(40, self.guest.wallet)
+
+    def test_guest_has_fave_song(self):
+        self.assertEqual("Famous Last Words", self.guest.fave_song)
 
     
 
