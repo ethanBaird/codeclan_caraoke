@@ -9,4 +9,7 @@ class Room:
     def get_guests(self):
         return len(self.guests)
 
+    def check_in(self, guest):
+        self.guests.append(guest)
+
 
