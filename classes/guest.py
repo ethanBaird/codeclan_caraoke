@@ -11,6 +11,10 @@ class Guest:
         else:
             return f"Can somebody queue {self.fave_song}!"
 
+    def buy_drink(self, drink):
+        self.wallet -= drink.price
+        
+
 
 
     
